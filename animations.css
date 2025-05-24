@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-on-load {
+  animation: slideInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+
+#autoshow {
+    animation: autoShowAnimation both;
+     animation-timeline: view(20% 10%);
+}
+
+@keyframes autoShowAnimation{
+    from{
+        opacity: 0;
+        transform: translateY(200px) scale(0.3);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+details{
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+details ul {
+    position: absolute;
+    right: 100%;
+    list-style: none;
+    width: max-content;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+details ul li{
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+details ul li:hover {
+    background-color: #d0d0d0;
+    border-radius: 5px;
+}
+
+details summary {
+    list-style: none;
+}
+
+details a{
+    text-decoration: none;
+}
+
+details a:hover{
+    background-color: #d0d0d0;
+    border-radius: 5px;
+}
+details i.fas {
+    font-size:4vh;
+    color: white;
+}
+form{
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 2vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ccc;
+}
+form input.submit {
+  background-color: rgb(50, 105, 186);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  
+}
+ form input.clear{
+  background-color: #bb2020;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+}
+
+form>div.buttonrow{
+    display: flex;
+    gap: 5px;
+}
+
+form input[type=text]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
