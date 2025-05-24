@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lantau Island</title>
+    <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Archivo+Black&effect=outline">
+    <style>
+         body {
+            background-color: #852020;
+        }
+        .container{
+            display: grid;
+            width: 100%;
+            grid-template-areas:
+            "logo navbar navbar navbar"
+            "konten1 konten1 konten2 gambar1"
+            "konten1 konten1 konten2 gambar2"
+            "deskripsi deskripsi deskripsi gambar2"
+            ;
+            grid-template-columns: 10vw 19vw 27vw 37vw;
+            grid-template-rows: 15vh 40vh 25vh 15vh;
+            gap: 5px;
+            padding: 5px;
+        }
+        .container > div {
+            padding: 10px;
+        }
+        .container > div.logo{
+            grid-area: logo;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+        }
+        .container > div.navbar{
+            grid-area: navbar;
+            text-align: center;
+        }
+        .navi {
+            position: sticky;
+            top: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            align-content: center;
+            position: fixed;
+            background-color: whitesmoke;
+            top: 10px;
+            left: 25%;
+            right: 25%;
+            width: 50%;
+            height: 60px;
+            border-radius: 40px;
+            z-index: 1;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: grey;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 12px;
+            transition: 0.7s;
+        }
+        .navbar a:hover {
+            font-size: 15px;
+            border-radius: 20px;
+            box-shadow: 0 0 4px black;
+        }
+        .konten1{
+            position: relative;
+            grid-area: konten1;
+            display: flex;
+        }
+        .konten1 > img{
+            position:absolute;
+            z-index: 1;
+            border-radius: 25px;
+            border: darkgray solid 5px;
+            height: 100%;
+        }
+        .konten1 > h1{
+            position: absolute;
+            z-index: 2;
+            font-family: "Archivo Black";
+            margin-left: 15px;
+            font-size: 35px;
+            text-align: left;
+            color: white;
+            text-shadow: 1px 1px 4px black;
+        }
+        .konten2{
+            grid-area: konten2;
+        }
+        .text {
+            font-family: "Archivo Black";
+            font-size: 20px;
+            color: white;
+        }
+        h6 {
+            margin-top: -25px;
+        }
+        .subtext {
+            font-family: "Archivo Black";
+            font-size: 10px;
+            color: white;
+        }
+        .gambar1 > img{
+            grid-area: gambar1;
+            border-radius: 25px;
+            height: 100%;
+        }
+        .gambar2 > img{
+            grid-area: gambar2;
+            border-radius: 25px;
+            width: 100%;
+        }
+        .deskripsi{
+            grid-area: deskripsi;
+            font-family: "Archivo Black";
+            font-size: 13px;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class = "container">
+        <div class = "logo">
+            <a href = "index.html">
+                <img src = "POSTER DESIGN WEBSITE IT.png" alt = "logo" width = "70px" height = "93px">
+            </a>
+        </div>
+        <div class = "navbar">
+            <div class = "navi">
+                <a href = "tourist destination.html">Tourist Destination</a>
+                <a href = "popular activities.html">Popular Activities</a>
+                <a href = "local cuisine.html">Local Cuisine</a>
+                <a href = "transport options.html">Transport Options</a>
+            </div>
+        </div>
+        <div class = "konten1">
+            <img src = "lantau 2.jpg">
+            <h1>Lantau<br>Island</h1>
+        </div>
+        <div class = "konten2">
+            <div class = "text">
+                <h4>📍Location</h4>
+                <h6>Western part of Hong Kong</h6>
+                <h4>🏃Activities</h4>
+                <h6>Hiking, sightseeing, visiting fishing villages (e.g., Tai O), Big Buddha</h6>
+                <h4>💰Fee</h4>
+                <h6>Free to enter; fees apply for attractions like the cable car or boat tours</h6>
+                <h4>🚃Access by</h4>
+                <h6>
+                    <ul>
+                        <li>MTR: Tung Chung Line to Tung Chung Station</li>
+                        <li>Ferry: From Central Pier to Mui Wo</li>
+                        <li>Bus: Various buses from Tung Chung or Mui Wo</li>
+                    </ul>
+                </h6>
+            </div>
+        </div>
+        <div class = "gambar1">
+            <img src = "lantau 3.jpg" width = "450px" height = "200px">
+        </div>
+        <div class = "gambar2">
+            <img src = "DSC00778.JPG">
+        </div>
+        <div class = "deskripsi">
+            Lantau Island blends nature and culture with stunning landscapes, traditional villages, and iconic landmarks like the Big Buddha. You can start off by visiting Tai O fishing village and the shaolin wushu culture centre.
+        </div>
+</body>
+</html>

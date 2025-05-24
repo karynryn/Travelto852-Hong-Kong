@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo+Black&effect=outline"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Flex"/>
+  <link rel="stylesheet" href="animations.css"/>
+  <script src="https://kit.fontawesome.com/7a42c54b92.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      background-color: #852020;
+    }
+    .container {
+      display: grid;
+      width: max-content;
+      grid-template-areas:
+        "logo navbar navbar user"
+        "konten konten konten konten"
+        "footer footer footer footer";
+      grid-template-columns: 10vw 40vw 46vw;
+      grid-template-rows: 15vh 60vh 20vh;
+      gap: 5px;
+      background-color: #852020;
+      padding: 5px;
+    }
+    .container > div {
+      background-color: #852020;
+      padding: 10px;
+    }
+    .container > div.logo {
+      grid-area: logo;
+      display: flex;
+      align-content: center;
+      justify-content: center;
+    }
+    .container > div.navbar {
+      grid-area: navbar;
+      text-align: center;
+    }
+    .container > div.user {
+      grid-area: user;
+      display: flex;
+      align-content: center;
+      justify-content: center;
+    }
+    .navi {
+      position: fixed;
+      top: 10px;
+      left: 25%;
+      right: 25%;
+      width: 50%;
+      height: 60px;
+      display: flex;
+      justify-content: space-evenly;
+      align-content: center;
+      flex-wrap: wrap;
+      background-color: whitesmoke;
+      border-radius: 40px;
+      z-index: 1;
+      text-decoration: none;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .navbar a {
+      float: left;
+      display: block;
+      color: grey;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 12px;
+      transition: 0.7s;
+    }
+    .navbar a:hover {
+      font-size: 15px;
+      border-radius: 20px;
+      box-shadow: 0 0 4px black;
+    }
+    .container > div.konten {
+      grid-area: konten;
+      display: flex;
+      align-content: center;
+      flex-direction: column;
+      padding: 20px;
+      margin: auto;
+      width: auto;
+      height: auto;
+    }
+    .judul {
+      z-index: 1;
+      font-size: 35px;
+      font-family: "Archivo Black";
+    }
+    img {
+      border-radius: 15px;
+    }
+    .img1 {
+      position: relative;
+      z-index: 2;
+      left: 100px;
+      top: -80px;
+    }
+    @keyframes img2 {
+      from {
+        left: -400px;
+        bottom: 50px;
+      }
+      to {
+        left: 10px;
+        bottom: 50px;
+      }
+    }
+    .img2 {
+      position: absolute;
+      z-index: 3;
+      left: 10px;
+      bottom: 50px;
+      animation-name: img2;
+      animation-duration: 2s;
+    }
+    .textbox {
+      position: absolute;
+      z-index: 4;
+      font-family: "Roboto Flex";
+      background: #ffffff;
+      height: 90px;
+      width: 90%;
+      left: 250px;
+      top: 300px;
+      font-size: 15px;
+      padding: 10px;
+    }
+    .container > div.footer {
+      grid-area: footer;
+      text-align: center;
+      color: white;
+    }
+    form{
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 2vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ccc;
+    }
+    .form input.submit {
+    background-color: rgb(50, 105, 186);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+  
+    }
+    .form input.clear{
+    background-color: #bb2020;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    }
+
+    .form>div.buttonrow{
+    display: flex;
+    gap: 5px;
+    }
+
+    .form input[type=text]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <a href="index.html">
+        <img src="POSTER DESIGN WEBSITE IT.png" alt="logo" width="70px" height="93px" />
+      </a>
+    </div>
+    <div class="navbar">
+      <div class="navi">
+        <a href="tourist destination.html">Tourist Destination</a>
+        <a href="popular activities.html">Popular Activities</a>
+        <a href="local cuisine.html">Local Cuisine</a>
+        <a href="transport options.html">Transport Options</a>
+      </div>
+    </div>
+    <div class="user">
+      <details>
+        <summary><i class="fas" style="font-size: 4vh">&#xf2bd;</i></summary>
+        <ul>
+          <li>Sign In</li>
+        </ul>
+      </details>
+    </div>
+    <div class="konten" id="autoshow">
+      <form name="login">
+        Username:
+        <input type="text" name="name" id="name" required placeholder="Enter Email" /><br />
+        Password:
+        <input type="password" name="password" id="password" required placeholder="Enter Password" /><br />
+        <div class="buttonrow">
+          <input type="button" class="submit" value="Submit" onclick="dosubmit()" />
+          <input type="reset" class="clear" value="Clear" />
+        </div>
+      </form>
+      <script>
+        function validateText() {
+          var name = document.login.name.value;
+          if (name.length === 0) return false;
+          var password = document.login.password.value;
+          if (password.length === 0) return false;
+          return true;
+        }
+
+        function dosubmit() {
+          if (!validateText()) {
+            alert("Username or Password missing");
+            return false;
+          }
+          const name = document.getElementById("name").value;
+          alert("Welcome back " + name + "!");
+          window.location.href = "index.html";
+          return false;
+        }
+
+        window.addEventListener("DOMContentLoaded", () => {
+          document
+            .querySelectorAll(".container > div:not(.logo):not(.navbar):not(.user)")
+            .forEach((el) => {
+              el.classList.add("animate-on-load");
+            });
+        });
+      </script>
+    </div>
+  </div>
+</body>
+</html>

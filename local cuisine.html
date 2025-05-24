@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Cuisine Page</title>
+    <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Archivo+Black&effect=outline">
+    <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Roboto+Flex">
+</head>
+<style>
+    body {
+        background-color: #852020;
+    }
+    .container{
+            display: grid;
+            width: max-content;
+            grid-template-areas:
+            "logo navbar navbar navbar"
+            "judul judul judul judul"
+            "food1 food1 food2 food3"
+            "food4 food4 food5 footer"
+            ;
+            grid-template-columns: 10vw 23vw 33vw 33vw;
+            grid-template-rows: 15vh 35vh 40vh 40vh;
+            gap: 5px;
+            padding: 5px;
+        }
+        .container > div {
+            padding: 10px;
+        }
+        .container > div.logo{
+            grid-area: logo;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+        }
+        .container > div.navbar{
+            grid-area: navbar;
+            text-align: center;
+        }
+        .navi {
+            position: sticky;
+            top: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            align-content: center;
+            position: fixed;
+            background-color: whitesmoke;
+            top: 10px;
+            left: 25%;
+            right: 25%;
+            width: 50%;
+            height: 60px;
+            border-radius: 40px;
+            z-index: 1;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: grey;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 12px;
+            transition: 0.7s;
+        }
+        .navbar a:hover {
+            font-size: 15px;
+            border-radius: 20px;
+            box-shadow: 0 0 4px black;
+        }
+        .judul {
+            position: relative;
+            grid-area: judul;
+            display: flex;
+            align-content: center;
+        }
+        .judul > img {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            height: auto;
+            box-shadow: 10px 10px 10px black;
+            -webkit-filter: blur(2px);
+            filter: blur(2px);
+        }
+        .titletext {
+            position: absolute;
+            z-index: 2;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-family: "Archivo Black";
+            font-size: 70px;
+            color: white;
+        }
+        .subtitletext {
+            position: absolute;
+            z-index: 2;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-family: "Archivo Black";
+            font-size: 10px;
+            color: white;
+        }
+        .food1 {
+            grid-area: food1;
+            display: flex;
+            justify-content: center;
+            border: 5px solid grey;
+            border-radius: 25px;
+            position: relative;
+        }
+        .food1 img {
+            border-radius: 25px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .layer1 {
+            grid-area: food1;
+            transition: .5s ease;
+            opacity: 0;
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+       }
+       .food1:hover .image1 {
+            opacity: 0.3;
+        }
+        .food1:hover .layer1 {
+            opacity: 1;
+        }
+        .text1 {
+            grid-area: food1;
+            background-color: grey;
+            color: white;
+            font-size: 16px;
+            padding: 16px 32px;
+            font-family: "Roboto Flex";
+        }
+        .food2 {
+            grid-area: food2;
+            display: flex;
+            border: 5px solid grey;
+            border-radius: 25px;
+            position: relative;
+            justify-content: center;
+        }
+        .food2 img {
+            border-radius: 25px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .layer2 {
+            grid-area: food2;
+            transition: .5s ease;
+            opacity: 0;
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+       }
+       .food2:hover .image2 {
+            opacity: 0.3;
+        }
+        .food2:hover .layer2 {
+            opacity: 1;
+        }
+        .text2 {
+            grid-area: food2;
+            background-color: grey;
+            color: white;
+            font-size: 16px;
+            padding: 16px 32px;
+            font-family: "Roboto Flex";
+        }
+        .food3 {
+            grid-area: food3;
+            display: flex;
+            border: 5px solid grey;
+            border-radius: 25px;
+            position: relative;
+            justify-content: center;
+        }
+        .food3 img {
+            border-radius: 25px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .layer3 {
+            grid-area: food3;
+            transition: .5s ease;
+            opacity: 0;
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+       }
+       .food3:hover .image3 {
+            opacity: 0.3;
+        }
+        .food3:hover .layer3 {
+            opacity: 1;
+        }
+        .text3 {
+            grid-area: food3;
+            background-color: grey;
+            color: white;
+            font-size: 16px;
+            padding: 16px 32px;
+            font-family: "Roboto Flex";
+        }
+        .food4 {
+            grid-area: food4;
+            display: flex;
+            border: 5px solid grey;
+            border-radius: 25px;
+            position: relative;
+            justify-content: center;
+        }
+        .food4 img {
+            border-radius: 25px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .layer4 {
+            grid-area: food4;
+            transition: .5s ease;
+            opacity: 0;
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+       }
+       .food4:hover .image4 {
+            opacity: 0.3;
+        }
+        .food4:hover .layer4 {
+            opacity: 1;
+        }
+        .text4 {
+            grid-area: food4;
+            background-color: grey;
+            color: white;
+            font-size: 16px;
+            padding: 16px 32px;
+            font-family: "Roboto Flex";
+        }
+        .food5 {
+            grid-area: food5;
+            display: flex;
+            border: 5px solid grey;
+            border-radius: 25px;
+            position: relative;
+            justify-content: center;
+        }
+        .food5 img {
+            border-radius: 25px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .layer5 {
+            grid-area: food5;
+            transition: .5s ease;
+            opacity: 0;
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+       }
+       .food5:hover .image5 {
+            opacity: 0.3;
+        }
+        .food5:hover .layer5 {
+            opacity: 1;
+        }
+        .text5 {
+            grid-area: food5;
+            background-color: grey;
+            color: white;
+            font-size: 16px;
+            padding: 16px 32px;
+            font-family: "Roboto Flex";
+        }
+</style>
+<body>
+    <div class = "container">
+        <div class = "logo">
+            <a href = "index.html">
+                <img src = "POSTER DESIGN WEBSITE IT.png" alt = "logo" width = "70px" height = "93px">
+            </a>
+        </div>
+        <div class = "navbar">
+            <div class = "navi">
+                <a href = "tourist destination.html">Tourist Destination</a>
+                <a href = "popular activities.html">Popular Activities</a>
+                <a href = "local cuisine.html">Local Cuisine</a>
+                <a href = "transport options.html">Transport Options</a>
+            </div>
+        </div>
+        <div class = "judul">
+            <img src = "hong kong food.jpg" alt = "hong kong food" width = "1210px" height = "200px">
+            <div class = "titletext">Local<br>Cuisine</div>
+            <div class = "subtitletext"><h2>Click on the images of foods you would like to taste in Hong Kong!</h2></div>
+        </div>
+        <div class = "food1">
+            <a href = "Dimsum.html">
+                <img src = "dimsum 1.jpg" class = "image1">
+                <div class = "layer1">
+                    <div class = "text1">Dimsum</div>
+                </div>
+            </a>
+        </div>
+        <div class = "food2">
+            <a href = "Egg Tart.html">
+                <img src = "egg tart 1.jpg" class = "image2">
+                <div class = "layer2">
+                    <div class = "text2">Egg Tart</div>
+                </div>
+            </a>
+        </div>
+        <div class = "food3">
+            <a href = "Wonton Noodle.html">
+                <img src = "wonton 1.jpg" class = "image3">
+                <div class = "layer3">
+                    <div class = "text3">Wonton Noodles</div>
+                </div>
+            </a>
+        </div>
+        <div class = "food4">
+            <a href = "Pineapple Bun.html">
+                <img src = "pineapple bun 1.jpg" class = "image4">
+                <div class = "layer4">
+                    <div class = "text4">Pineapple Bun</div>
+                </div>
+            </a>
+        </div>
+        <div class = "food5">
+            <a href = "Charsiu.html">
+                <img src = "charsiu 1.jpg" class = "image5">
+                <div class = "layer5">
+                    <div class = "text5">Charsiu</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

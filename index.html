@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Archivo+Black&effect=outline">
+    <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Roboto+Flex">
+    <link rel="stylesheet" href="animations.css">
+    <script src="https://kit.fontawesome.com/7a42c54b92.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+        background-color: #852020; 
+    }
+        .container{
+            display: grid;
+            width: max-content;
+            grid-template-areas: 
+            "logo navbar navbar user"
+            "konten konten konten konten"
+            "track track track track"
+            "footer footer footer footer";
+            grid-template-columns: 10vw 40vw 46vw auto;
+            grid-template-rows: 15vh 60vh 60vh auto;
+            gap: 5px;
+            background-color: #852020;
+            padding: 5px;
+        }
+        .container > div {
+            background-color: #852020;
+            padding: 10px;
+        }
+        .container > div.logo{
+            grid-area: logo;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+        }
+        .container > div.navbar{
+            grid-area: navbar;
+            text-align: center;
+        }
+        .container > div.user{
+            grid-area: user;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            
+        }
+        .navi {
+            position: sticky;
+            top: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            align-content: center;
+            position: fixed;
+            background-color: whitesmoke;
+            top: 10px;
+            left: 25%;
+            right: 25%;
+            width: 50%;
+            height: 60px;
+            border-radius: 40px;
+            z-index: 1;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: grey;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 12px;
+            transition: 0.7s;
+        }
+        .navbar a:hover {
+            font-size: 15px;
+            border-radius: 20px;
+            box-shadow: 0 0 4px black;
+        }
+        .container > div.konten{
+            grid-area: konten;
+            display: flex;
+            align-content: center;
+            flex-direction: column;
+            padding: 20px;
+            margin: auto;
+            width: auto;
+            height: auto;
+        }
+        .judul {
+            z-index: 3;
+            font-size: 35px;
+            font-family: "Archivo Black";
+            text-align: center;
+        }
+        img {
+            border-radius: 15px;
+        }
+        .img1 {
+            position: relative;
+            z-index: 2;
+            top: -50px;
+            text-align: center;
+        }
+        @keyframes img2 {
+            from {left: -1000px; bottom:30px; opacity: 0;}
+            to {left: -150px; bottom: 30px; opacity: 1;}
+        }
+        .img2 {
+            position: absolute;
+            z-index: 3;
+            left: -150px;
+            bottom: 30px;
+            animation-name: img2;
+            animation-duration: 3s;
+        }
+        .textbox {
+            position: absolute;
+            z-index: 2;
+            font-family: "Roboto Flex";
+            background:#FFFFFF;
+            height: 90px;
+            width: 90%;
+            bottom: 0px;
+            text-align: center;
+            font-size: 15px;
+            padding: 10px;
+        }
+        .container > div.gambar{
+            grid-area: gambar;
+            
+        }
+        .container > div.footer{
+            grid-area: footer;
+            text-align: center;
+            color: white;
+        }
+
+        /*gallery stuff*/
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                grid-template-areas: 
+                    "navbar"
+                    "konten"
+                    "track";
+                grid-template-rows: auto auto 1fr;
+            }
+            
+            .logo, .user, .gambar {
+                display: none;
+            }
+            
+            .navi {
+                position: relative;
+                left: 0;
+                right: 0;
+                width: 100%;
+                top: 0;
+            }
+            
+            #image-track > .image {
+                width: 60vmin;
+                height: 80vmin;
+            }
+            
+            .textbox {
+                position: relative;
+                left: 0;
+                top: 20px;
+                width: 100%;
+            }
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0);
+            transition: background-color 0.4s ease;
+        }
+        
+        .modal.active {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 80%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            opacity: 0;
+            transition: all 0.4s ease;
+            border-radius: 15px;
+        }
+        
+        .modal.active .modal-content {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+        
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
+            transition: color 0.3s ease;
+        }
+        
+        .close:hover {
+            color: #fff;
+        }
+        
+        .caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+        }
+        .scroll-indicator {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            font-size: 14px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: opacity 0.3s ease;
+            z-index: 10;
+        }
+        
+        .scroll-indicator.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+         #image-track {
+            display: flex;
+            gap: 4vmin;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            user-select: none;
+        }
+        
+        #image-track > .image {
+            width: 40vmin;
+            height: 56vmin;
+            object-fit: cover;
+            object-position: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            border-radius: 15px;
+        }
+        
+        #image-track > .image:hover {
+            transform: scale(1.05);
+        }
+        .container > div.gallery-container{
+            grid-area: track;
+            position: relative;
+            width: 100%;
+            height: 60vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .image {
+            image-rendering: auto;        
+            image-rendering: crisp-edges;
+            image-rendering: high-quality;
+        }
+        details{
+        position: relative;
+        font-family: Arial, Helvetica, sans-serif;
+        }
+
+        details ul {
+        position: absolute;
+        right: 100%;
+        list-style: none;
+        width: max-content;
+        background-color: #fff;
+        border-radius: 5px;
+        }
+
+        details ul li{
+        padding: 5px 15px;
+        cursor: pointer;
+        }
+
+        details ul li:hover {
+        background-color: #d0d0d0;
+        border-radius: 5px;
+        }
+
+        details summary {
+        list-style: none;
+        }
+
+        details a{
+        text-decoration: none;
+        }
+
+        details a:hover{
+        background-color: #d0d0d0;
+        border-radius: 5px;
+        }
+        details i.fas {
+        font-size:4vh;
+        color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class = "container">
+        <div class = "logo">
+            <img src = "POSTER DESIGN WEBSITE IT.png" alt = "logo" width = "70px" height = "93px">
+        </div>
+        <div class = "navbar">
+            <div class = "navi">
+                <a href = "tourist destination.html">Tourist Destination</a>
+                <a href = "popular activities.html">Popular Activities</a>
+                <a href = "local cuisine.html">Local Cuisine</a>
+                <a href = "transport options.html">Transport Options</a>
+            </div>
+        </div>
+        <div class="user">
+            <details>
+                <summary>
+                    <i class="fas" >&#xf2bd;</i>
+                </summary>
+                <ul>
+                    <li><a href="login.html">Sign In</a></li>
+                </ul>
+            </details>
+        </div>
+        <div class = "konten" >
+           
+            <div class = "judul">
+                <h1 class = "font-effect-outline">Travelto852</h1>
+            </div>
+            <div class = "img1">
+                <img src = "hong kong flag.png" alt = "hong kong flag" width = "400px" height = "210px">
+            </div>
+            <div class = "img2">
+                <img src = "tram-removebg-preview.png" alt = "tram" width = "300px" height = "200px">
+            </div>
+            <div class = "textbox">
+                Welcome to our website!
+                <p>Where we will be introducing you to the various aspects of Hong Kong. Feel free to browse as you wish according to your needs</p>
+            </div>
+        
+        </div>
+        
+        <div class="gallery-container">
+            <div id="image-track" data-mouse-down-at="0" data-prev-percentage="-50" data-percentage="-50">
+                <img class="image" src="hong kong city view.jpg" draggable="false" data-description="hk city view" alt="hk city view" style="object-position: 50% center;">
+                <img class="image" src="hk disney 1.jpg" draggable="false" data-description="hk disney" alt="Verstappen Gravion" style="object-position: 50% center;">
+                <img class="image" src="avenue of stars 1.jpg" draggable="false" data-description="Verstappen Helix GT" alt="Verstappen Helix GT" style="object-position: 50% center;">
+                <img class="image" src="hiking 1.jpg" draggable="false" data-description="Verstappen Obsidian RS" alt="Verstappen Obsidian RS" style="object-position: 50% center;">
+                <img class="image" src="hong-kong-skyline.jpg" draggable="false" data-description="Verstappen Xenonance" alt="Verstappen Xenonance" style="object-position: 50% center;">
+                <img class="image" src="lantau 1.jpg" draggable="false" data-description="Verstappen Zephyros" alt="Verstappen Zephyros" style="object-position: 50% center;">
+                <img class="image" src="ngong ping 1.jpg" draggable="false" data-description="Verstappen Oppressor" alt="Verstappen Oppressor" style="object-position: 50% center;">
+                <img class="image" src="ocean park 1.jpg" draggable="false" data-description="Verstappen Zentorno" alt="Verstappen Zentorno" style="object-position: 50% center;">
+            </div>
+            
+            <div class="scroll-indicator">
+                <i class="fas fa-arrow-left"></i>
+                <span>Use Shift+Scroll or drag to navigate</span>
+                <i class="fas fa-arrow-right"></i>
+            </div>
+        </div>
+        <div id="modal" class="modal">
+            <span id="close-modal" class="close">&times;</span>
+            <img id="modal-image" class="modal-content">
+            <div id="modal-description" class="caption"></div>
+        </div>
+        <div class = "footer" id=>
+            <h3>Made by: Jennifer and Karyn</h3>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

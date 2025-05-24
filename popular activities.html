@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popular Activities Page</title>
+    <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Archivo+Black&effect=outline">
+    <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Roboto+Flex">
+<style>
+    body {
+        background-color: #852020;
+    }
+    .container {
+        display: grid;
+        width: max-content;
+        grid-template-areas:
+        "logo navbar navbar navbar"
+        "judul judul judul judul"
+        "act1 act1 act2 act3"
+        "act4 act4 footer footer";
+        grid-template-columns: 10vw 23vw 33vw 33vw;
+        grid-template-rows: 15vh 35vh 40vh 40vh;
+        gap: 5px;
+        padding: 5px;
+    }
+    .container > div {
+            padding: 10px;
+        }
+        .container > div.logo{
+            grid-area: logo;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+        }
+        .container > div.navbar{
+            grid-area: navbar;
+            text-align: center;
+        }
+        .navi {
+            position: sticky;
+            top: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            align-content: center;
+            position: fixed;
+            background-color: whitesmoke;
+            top: 10px;
+            left: 25%;
+            right: 25%;
+            width: 50%;
+            height: 60px;
+            border-radius: 40px;
+            z-index: 1;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: grey;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 12px;
+            transition: 0.7s;
+        }
+        .navbar a:hover {
+            font-size: 15px;
+            border-radius: 20px;
+            box-shadow: 0 0 4px black;
+        }
+        .judul {
+            position: relative;
+            grid-area: judul;
+            display: flex;
+            align-content: center;
+        }
+        .judul > img {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            height: auto;
+            box-shadow: 10px 10px 10px black;
+            -webkit-filter: blur(2px);
+            filter: blur(2px);
+        }
+        .titletext {
+            position: absolute;
+            z-index: 2;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-family: "Archivo Black";
+            font-size: 70px;
+            color: white;
+        }
+        .subtitletext {
+            position: absolute;
+            z-index: 2;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-family: "Archivo Black";
+            font-size: 10px;
+            color: white;
+        }
+        .act1 {
+            grid-area: act1;
+            display: flex;
+            justify-content: center;
+            border: 5px solid grey;
+            border-radius: 25px;
+            position: relative;
+        }
+        .act1 img {
+            border-radius: 25px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .layer1 {
+            grid-area: act1;
+            transition: .5s ease;
+            opacity: 0;
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+       }
+       .act1:hover .image1 {
+            opacity: 0.3;
+        }
+        .act1:hover .layer1 {
+            opacity: 1;
+        }
+        .text1 {
+            grid-area: act1;
+            background-color: grey;
+            color: white;
+            font-size: 16px;
+            padding: 16px 32px;
+            font-family: "Roboto Flex";
+        }
+        .act2 {
+            grid-area: act2;
+            display: flex;
+            border: 5px solid grey;
+            border-radius: 25px;
+            position: relative;
+            justify-content: center;
+        }
+        .act2 img {
+            border-radius: 25px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .layer2 {
+            grid-area: act2;
+            transition: .5s ease;
+            opacity: 0;
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+       }
+       .act2:hover .image2 {
+            opacity: 0.3;
+        }
+        .act2:hover .layer2 {
+            opacity: 1;
+        }
+        .text2 {
+            grid-area: act2;
+            background-color: grey;
+            color: white;
+            font-size: 16px;
+            padding: 16px 32px;
+            font-family: "Roboto Flex";
+        }
+        .act3 {
+            grid-area: act3;
+            display: flex;
+            border: 5px solid grey;
+            border-radius: 25px;
+            position: relative;
+            justify-content: center;
+        }
+        .act3 img {
+            border-radius: 25px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .layer3 {
+            grid-area: act3;
+            transition: .5s ease;
+            opacity: 0;
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+       }
+       .act3:hover .image3 {
+            opacity: 0.3;
+        }
+        .act3:hover .layer3 {
+            opacity: 1;
+        }
+        .text3 {
+            grid-area: act2;
+            background-color: grey;
+            color: white;
+            font-size: 16px;
+            padding: 16px 32px;
+            font-family: "Roboto Flex";
+        }
+        .act4 {
+            grid-area: act4;
+            display: flex;
+            border: 5px solid grey;
+            border-radius: 25px;
+            position: relative;
+            justify-content: center;
+        }
+        .act4 img {
+            border-radius: 25px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .layer4 {
+            grid-area: act4;
+            transition: .5s ease;
+            opacity: 0;
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+       }
+       .act4:hover .image4 {
+            opacity: 0.3;
+        }
+        .act4:hover .layer4 {
+            opacity: 1;
+        }
+        .text4 {
+            grid-area: act4;
+            background-color: grey;
+            color: white;
+            font-size: 16px;
+            padding: 16px 32px;
+            font-family: "Roboto Flex";
+        }
+</style>
+</head>
+<body>
+    <div class = "container">
+        <div class = "logo">
+            <a href = "index.html">
+                <img src = "POSTER DESIGN WEBSITE IT.png" alt = "logo" width = "70px" height = "93px">
+            </a>
+        </div>
+        <div class = "navbar">
+            <div class = "navi">
+                <a href = "tourist destination.html">Tourist Destination</a>
+                <a href = "popular activities.html">Popular Activities</a>
+                <a href = "local cuisine.html">Local Cuisine</a>
+                <a href = "transport options.html">Transport Options</a>
+            </div>
+        </div>
+        <div class = "judul">
+            <img src = "trekking hong kong view.jpg" alt = "trekking view" width = "1210px" height = "200px">
+            <div class = "titletext">Popular<br>Activities</div>
+            <div class = "subtitletext"><h2>Click on the images of activities you would like to explore in Hong Kong!</h2></div>
+        </div>
+        <div class = "act1">
+            <a href = "Horse Racing.html">
+                <img src = "horse racing 1.jpg" class = "image1">
+                <div class = "layer1">
+                    <div class = "text1">Horse Racing</div>
+                </div>
+            </a>
+        </div>
+        <div class = "act2">
+            <a href = "Wushu.html">
+                <img src = "wushu 1.jpg" class = "image2">
+                <div class = "layer2">
+                    <div class = "text2">Wushu</div>
+                </div>
+            </a>
+        </div>
+        <div class = "act3">
+            <a href = "Hiking.html">
+                <img src = "hiking 1.jpg" class = "image3">
+                <div class = "layer3">
+                    <div class = "text3">Hiking</div>
+                </div>
+            </a>
+        </div>
+        <div class = "act4">
+            <a href = "Ride Ferry Ferris.html">
+                <img src = "ferry 1.jpg" class = "image4">
+                <div class = "layer4">
+                    <div class = "text4">Ride Ferry/Ferris Wheel</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
